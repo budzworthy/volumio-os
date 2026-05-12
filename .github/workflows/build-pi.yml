@@ -43,7 +43,9 @@ jobs:
             zip
 
       - name: Build Raspberry Pi image
-        run: sudo ./build.sh -b arm -d pi -v 9.999
+        env:
+          TERM: xterm
+        run: sudo -E ./build.sh -b arm -d pi -v 9.999
 
       - name: Upload image artifact
         uses: actions/upload-artifact@v4
